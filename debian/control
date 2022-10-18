@@ -1,0 +1,31 @@
+Source: ruby-delayed-job
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Balasankar C <balasankarc@autistici.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1.6~),
+               rake,
+               ruby-actionmailer,
+               ruby-activerecord,
+               ruby-activesupport (<= 2:6.2~),
+               ruby-rspec,
+               ruby-sqlite3
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-delayed-job.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-delayed-job
+Homepage: https://github.com/collectiveidea/delayed_job
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-delayed-job
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: database-backed asynchronous priority queue system
+ Delayed_job (or DJ) encapsulates the common pattern of asynchronously
+ executing longer tasks in the background. It is a direct extraction from
+ Shopify where the job table is responsible for a multitude of core tasks.

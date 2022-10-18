@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+export LC_ALL = C.UTF-8
+export GEM2DEB_TEST_RUNNER = --check-dependencies
+export DH_RUBY = --gem-install
+export DH_RUBY_GEM_INSTALL_INCLUDE = spec/sample_jobs.rb
+
+%:
+	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGELOG.md
